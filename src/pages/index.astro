@@ -10,7 +10,7 @@ import getPostsByGroupCondition from "@utils/getPostsByGroupCondition";
 
 // Redirect to 404 page if `showArchives` config is false
 if (!SITE.showArchives) {
-  return Astro.redirect("/404");
+  return Astro.redirect("/blogs/404");
 }
 
 const posts = await getCollection("blog", ({ data }) => !data.draft);
@@ -70,7 +70,7 @@ const MonthMap: Record<string, string> = {
                           )
                       )
                       .map(({ data, slug }) => (
-                        <Card href={`/posts/${slug}`} frontmatter={data} />
+                        <Card href={`/blogs/posts/${slug}`} frontmatter={data} />
                       ))}
                   </ul>
                 </div>
