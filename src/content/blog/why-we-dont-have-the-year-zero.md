@@ -23,7 +23,8 @@ The year zero doesn't exist in the Gregorian Calendar, which is the one we use d
 
 For example, the Vikram Samvat and the Shaka Samvat, two main calendars in common use in present-day India, who have known the idea of zero long before the Europeans, have a zero point of 57 BC and of 78 AD respectively.
 
-# Reference
+# References
 - [Who invented the zero](https://www.history.com/articles/who-invented-the-zero)
 - [Journey of zero evolution](https://www.diplomacy.edu/blog/journey-of-zero-evolution/)
 - [When it all began: Indian calendars](https://indianexpress.com/article/parenting/learning/when-it-all-began-indian-calendars-5521374/)
+- [What is the reason for there being no year zero in the Gregorian calendar?](https://www.quora.com/What-is-the-reason-for-there-being-no-year-zero-in-the-Gregorian-calendar)
