@@ -1,9 +1,9 @@
 import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
-  website: "https://nguyengiabach.com/blogs/",
+  website: "https://nguyengiabach.com/",
   author: "Nguyễn Gia Bách",
-  profile: "https://nguyengiabach.com/blogs/",
+  profile: "https://nguyengiabach.com/",
   desc: "Welcome to my blog",
   title: "Blogs",
   ogImage: "astropaper-og.jpg",
