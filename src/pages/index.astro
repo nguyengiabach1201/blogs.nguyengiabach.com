@@ -1,84 +1,101 @@
 ---
 import { getCollection } from "astro:content";
-import Card from "@components/Card";
-import Footer from "@components/Footer.astro";
-import Header from "@components/Header.astro";
-import { SITE } from "@config";
-import Layout from "@layouts/Layout.astro";
-import Main from "@layouts/Main.astro";
-import getPostsByGroupCondition from "@utils/getPostsByGroupCondition";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import Card from "@/components/Card.astro";
+import Hr from "@/components/Hr.astro";
+import getSortedPosts from "@/utils/getSortedPosts";
+import IconRss from "@/assets/icons/IconRss.svg";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import { SITE } from "@/config";
 
-// Redirect to 404 page if `showArchives` config is false
-if (!SITE.showArchives) {
-  return Astro.redirect("/blogs/404");
-}
+const posts = await getCollection("blog");
 
-const posts = await getCollection("blog", ({ data }) => !data.draft);
-
-const MonthMap: Record<string, string> = {
-  "1": "January",
-  "2": "February",
-  "3": "March",
-  "4": "April",
-  "5": "May",
-  "6": "June",
-  "7": "July",
-  "8": "August",
-  "9": "September",
-  "10": "October",
-  "11": "November",
-  "12": "December",
-};
+const sortedPosts = getSortedPosts(posts);
+const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
+const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 ---
 
-<Layout title={`Main | ${SITE.title}`}>
-  <Header/>
-  <Main pageTitle="" pageDesc="">
-    {
-      Object.entries(
-        getPostsByGroupCondition(posts, post =>
-          post.data.pubDatetime.getFullYear()
-        )
-      )
-        .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
-        .map(([year, yearGroup]) => (
-          <div>
-            <span class="text-2xl font-bold">{year}</span>
-            <sup class="text-sm">{yearGroup.length}</sup>
-            {Object.entries(
-              getPostsByGroupCondition(
-                yearGroup,
-                post => post.data.pubDatetime.getMonth() + 1
-              )
-            )
-              .sort(([monthA], [monthB]) => Number(monthB) - Number(monthA))
-              .map(([month, monthGroup]) => (
-                <div class="flex flex-col sm:flex-row">
-                  <div class="mt-6 min-w-36 text-lg sm:my-6">
-                    <span class="font-bold">{MonthMap[month]}</span>
-                    <sup class="text-xs">{monthGroup.length}</sup>
-                  </div>
-                  <ul>
-                    {monthGroup
-                      .sort(
-                        (a, b) =>
-                          Math.floor(
-                            new Date(b.data.pubDatetime).getTime() / 1000
-                          ) -
-                          Math.floor(
-                            new Date(a.data.pubDatetime).getTime() / 1000
-                          )
-                      )
-                      .map(({ data, slug }) => (
-                        <Card href={`/blogs/posts/${slug}`} frontmatter={data} />
-                      ))}
-                  </ul>
-                </div>
-              ))}
-          </div>
-        ))
-    }
-  </Main>
+<Layout>
+  <Header />
+  <main id="main-content" data-layout="index">
+    <section id="hero" class="pt-8 pb-6">
+      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
+        Nguyễn Gia Bách
+      </h1>
+      <a
+        target="_blank"
+        href="/rss.xml"
+        class="inline-block"
+        aria-label="rss feed"
+        title="RSS Feed"
+      >
+        <IconRss
+          width={20}
+          height={20}
+          class="scale-125 stroke-accent stroke-3"
+        />
+        <span class="sr-only">RSS Feed</span>
+      </a>
 
+      <p>
+        I’m thrilled to finally launch this space where we can connect, share
+        ideas, and explore interesting topics together. Whether you’re here out
+        of curiosity, seeking inspiration, or just happened to stumble upon this
+        corner of the internet, I’m excited to have you join me on this journey.
+      </p>
+    </section>
+
+    <Hr />
+
+    {
+      featuredPosts.length > 0 && (
+        <>
+          <section id="featured" class="pt-12 pb-6">
+            <h2 class="text-2xl font-semibold tracking-wide">Featured</h2>
+            <ul>
+              {featuredPosts.map(data => (
+                <Card variant="h3" {...data} />
+              ))}
+            </ul>
+          </section>
+          {recentPosts.length > 0 && <Hr />}
+        </>
+      )
+    }
+
+    {
+      recentPosts.length > 0 && (
+        <section id="recent-posts" class="pt-12 pb-6">
+          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
+          <ul>
+            {recentPosts.map(
+              (data, index) =>
+                index < SITE.postPerIndex && <Card variant="h3" {...data} />
+            )}
+          </ul>
+        </section>
+      )
+    }
+
+    <div class="my-8 text-center">
+      <LinkButton href="/posts/">
+        All Posts
+        <IconArrowRight class="inline-block" />
+      </LinkButton>
+    </div>
+  </main>
   <Footer />
 </Layout>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const indexLayout = (document.querySelector("#main-content") as HTMLElement)
+      ?.dataset?.layout;
+    if (indexLayout) {
+      sessionStorage.setItem("backUrl", "/");
+    }
+  });
+</script>
