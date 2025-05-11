@@ -17,7 +17,7 @@ Greek city states likely developed because of the geography of the region. Greek
 
 # Diversity and uniqueness
 
-Another reason for the absence of a centralized goverment was the diversity in kind of pollitical systems and ideology. Autocracy, Democracy, Monarchy, Oligarchy, Tyranny and the list goes on, more than 500 “types” of governments. Thousands of them are tiny, but it is still enough to cause big troubles to who wants to try to unite them.
+Another reason for the absence of a centralized goverment was the diversity in kind of pollitical systems and ideology. Autocracy, Democracy, Monarchy, Oligarchy, Tyranny and the list goes on, more than 500 _types_ of governments. Thousands of them are tiny, but it is still enough to cause big troubles to who wants to try to unite them.
 
 It's also necessary to state that the Greek aristocracy themselves strove to maintain their states' independence. Athens elites didn't want their state to be part of others. Neither did the Thebes, Corinth, Spartan,...
 

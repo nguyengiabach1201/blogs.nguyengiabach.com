@@ -13,10 +13,10 @@ Have you ever messed with the calendar on your phone or your laptop, tried to go
 
 # The idea of zero
 
-The birth of zero was most likely to took place in ancient Mesopotamia, which is now part of present-day Iraq, Iran, Turkey, Syria and Kuwait. The first recorded use of a zero-like symbol dates to sometime around the third century B.C. But it's Fibonacci who introduced the ‘0’ to Europe through his book _Liber Abaci (Book of Calculation)_ in 1202.
+The birth of zero was most likely to took place in ancient Mesopotamia, which is now part of present-day Iraq, Iran, Turkey, Syria and Kuwait. The first recorded use of a zero-like symbol dates to sometime around the third century B.C. But it's Fibonacci who introduced the _0_ to Europe through his book _Liber Abaci (Book of Calculation)_ in 1202.
 
 # The reason
-The reason there is no “year zero” is that the concept of zero was not known to the man who invented our year numbering system. His name was Dionysius Exiguus, and he lived in Europe in the 6th century. The idea of zero did not reach Europe until almost 600 years later, as I have mentioned.
+The reason there is no _year zero_ is that the concept of zero was not known to the man who invented our year numbering system. His name was Dionysius Exiguus, and he lived in Europe in the 6th century. The idea of zero did not reach Europe until almost 600 years later, as I have mentioned.
 
 # There's actually the year zero
 The year zero doesn't exist in the Gregorian Calendar, which is the one we use daily due to the late presence of the idea ‘0’ at Europe. But what about other calendars created by others civilizations who had knew ‘0’ for a long time? The answer is they do have the year zero!
