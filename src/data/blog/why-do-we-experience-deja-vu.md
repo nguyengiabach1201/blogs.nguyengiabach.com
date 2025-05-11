@@ -1,7 +1,7 @@
 ---
 author: Nguyễn Gia Bách
 pubDatetime: 2025-05-11T23:00:00+07:00
-title: Why we experience déjà vu?
+title: Why do we experience déjà vu?
 draft: false
 tags:
   - history
